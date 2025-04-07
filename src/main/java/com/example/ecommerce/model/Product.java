@@ -1,5 +1,6 @@
 package com.example.ecommerce.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,9 +20,15 @@ public class Product {
     private String brand;
     private double price;
     private String category;
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-YYYY")
     private Date releaseDate;
     private boolean available;
     private int quantity;
+
+    private String imageName;
+    private String imageType;
+    @Lob
+    private byte[] image;
 
     public Product() {
 
